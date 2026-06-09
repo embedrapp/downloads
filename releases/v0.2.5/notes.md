@@ -1,0 +1,6 @@
+- Agents can now make file edits with more reliable patch-based changes and clearer edit results.
+- PCB workflows can now export KiCad schematics and generate fabrication artifacts from KiCad-native boards.
+- The Board tab adds better manual routing, clearer layer controls, improved route status feedback, and one-click board screenshots.
+- PCB and schematic screenshots can now appear directly in tool results so agents can visually check boards and schematics faster.
+- Schematic previews are smoother and more readable, with better wire routing, label placement, and refresh behavior after edits.
+- Fixed several PCB routing, screenshot, tool result, and approval prompt reliability issues.
