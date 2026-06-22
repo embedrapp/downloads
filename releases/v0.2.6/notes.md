@@ -1,0 +1,7 @@
+- New subscription onboarding helps free users understand available agents, upgrade options, and account setup more clearly.
+- ChatGPT setup is smoother, with improved OpenAI account onboarding and preserved model choices after setup.
+- Git workflows are easier to review with a dedicated working-tree review view and more reliable staged-change handling.
+- PCB automation is more dependable, with better placement/routing constraints, clearer diagnostics, resumable routing, and improved progress feedback.
+- KiCad and PCB export workflows are more robust, including better artifact export feedback, screenshot layer filters, and improved schematic output.
+- Release builds now verify the latest bundled pcb runtime before packaging on macOS, Windows, and Linux.
+- Fixed onboarding, board refresh, Git review, PCB automation, dependency, and large-output stability issues.
