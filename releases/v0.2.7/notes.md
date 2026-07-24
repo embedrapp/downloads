@@ -1,0 +1,7 @@
+- Embedr projects now work in the browser with secure cloud workspaces, hosted builds, and durable agent runs.
+- Share projects through read-only links with preserved revisions and downloadable project artifacts.
+- Build, flash, and monitor supported devices from the browser with Web Serial.
+- Start firmware-only, PCB-only, or combined electronics projects with clearer setup and target selection.
+- Agents are more dependable when editing projects, installing components, building firmware, and working across PCB and schematic files.
+- Model support and subscriptions have been refreshed, including GPT-5.6 and updated plan and upgrade flows.
+- Schematic viewing, PCB workflows, component installation, project deletion, streaming responses, and desktop connectivity are more stable.
