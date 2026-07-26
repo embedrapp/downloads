@@ -1,7 +1,13 @@
-- Embedr projects now work in the browser with secure cloud workspaces, hosted builds, and durable agent runs.
-- Share projects through read-only links with preserved revisions and downloadable project artifacts.
+- Use Embedr in the browser with secure cloud workspaces, hosted builds, and durable agent runs.
+- Share projects through read-only links with preserved revisions and downloadable artifacts.
 - Build, flash, and monitor supported devices from the browser with Web Serial.
-- Start firmware-only, PCB-only, or combined electronics projects with clearer setup and target selection.
-- Agents are more dependable when editing projects, installing components, building firmware, and working across PCB and schematic files.
-- Model support and subscriptions have been refreshed, including GPT-5.6 and updated plan and upgrade flows.
-- Schematic viewing, PCB workflows, component installation, project deletion, streaming responses, and desktop connectivity are more stable.
+- Plan projects before implementation with the new Plan Mode and clear specification confirmations.
+- Resume, steer, or cancel agent work more reliably—even when reconnecting to a hosted run.
+- Paste images directly into chats and keep drafts, queued messages, and tool details organized per conversation.
+- Work naturally with Zener, KiCad, PlatformIO, and other hardware files through dedicated icons, editors, and schematic routing.
+- Build cleaner schematics with agent-guided placement, steadier canvas controls, and more dependable diagnostics.
+- Start PCB-only projects without extra initialization prompts; project manifests and ignored build files are now handled automatically.
+- See plan usage, exhaustion, and available overage credit more clearly.
+- Use refreshed model options, including GPT-5.6 and Claude Opus 5.
+- Installers now include the corrected, fully verified PCB runtime and standard library on macOS, Windows, and Linux.
+- Includes broader reliability improvements across component installation, project sharing, browser builds, device flashing, and desktop connectivity.
