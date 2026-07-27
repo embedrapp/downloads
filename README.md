@@ -37,7 +37,13 @@ Cloudflare Pages settings:
 
 - Build command: `bash scripts/build-pages.sh`
 - Build output directory: `dist`
+- Production branch: `main`
 - Custom domain: `get.embedr.app`
+
+Pull requests verify installer syntax, canonical release URLs, Gatekeeper
+behavior, and the exact Cloudflare build output. After an installer change is
+merged, GitHub Actions waits for the production deployment and verifies that
+both live scripts match the committed sources byte-for-byte.
 
 ### Download
 - Get the latest installers from this repository's Releases page

@@ -5,7 +5,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$Repo = 'sinhaventures/embedr-release'
+$Repo = 'embedrapp/downloads'
 $GitHubApi = "https://api.github.com/repos/$Repo"
 
 function Write-Info {

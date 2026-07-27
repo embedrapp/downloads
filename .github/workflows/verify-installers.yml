@@ -1,0 +1,53 @@
+name: Verify installers
+
+on:
+  pull_request:
+    paths:
+      - install.sh
+      - install.ps1
+      - scripts/build-pages.sh
+      - scripts/verify-installer-source.sh
+      - scripts/verify-live-installers.sh
+      - site/**
+      - wrangler.toml
+      - .github/workflows/verify-installers.yml
+  push:
+    branches:
+      - main
+    paths:
+      - install.sh
+      - install.ps1
+      - scripts/build-pages.sh
+      - scripts/verify-installer-source.sh
+      - scripts/verify-live-installers.sh
+      - site/**
+      - wrangler.toml
+      - .github/workflows/verify-installers.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-installers-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source:
+    name: Verify source and build output
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: scripts/verify-installer-source.sh
+
+  production:
+    name: Verify production deployment
+    if: github.event_name == 'push'
+    needs: source
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Wait for Cloudflare Pages
+        env:
+          MAX_ATTEMPTS: "30"
+          RETRY_SECONDS: "20"
+        run: scripts/verify-live-installers.sh
