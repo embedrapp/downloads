@@ -9,6 +9,7 @@ on:
       - scripts/verify-installer-source.sh
       - scripts/verify-live-installers.sh
       - site/**
+      - wrangler.toml
       - .github/workflows/verify-installers.yml
   push:
     branches:
@@ -20,6 +21,7 @@ on:
       - scripts/verify-installer-source.sh
       - scripts/verify-live-installers.sh
       - site/**
+      - wrangler.toml
       - .github/workflows/verify-installers.yml
 
 permissions:
