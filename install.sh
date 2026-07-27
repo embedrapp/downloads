@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_OWNER="sinhaventures"
-REPO_NAME="embedr-release"
+REPO_OWNER="embedrapp"
+REPO_NAME="downloads"
 REPO="$REPO_OWNER/$REPO_NAME"
 GITHUB_API="https://api.github.com/repos/$REPO"
 GITHUB_RELEASES="https://github.com/$REPO/releases"
