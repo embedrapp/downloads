@@ -26,9 +26,9 @@ if grep -Ein 'xattr.*quarantine|com\.apple\.quarantine' "$ROOT_DIR/install.sh"; 
 fi
 
 if command -v pwsh >/dev/null 2>&1; then
-    pwsh -NoLogo -NoProfile -NonInteractive -Command \
-        '$tokens = $null; $errors = $null; [System.Management.Automation.Language.Parser]::ParseFile($args[0], [ref]$tokens, [ref]$errors) > $null; if ($errors.Count) { $errors | ForEach-Object { Write-Error $_ }; exit 1 }' \
-        "$ROOT_DIR/install.ps1"
+    INSTALL_PS1="$ROOT_DIR/install.ps1" \
+        pwsh -NoLogo -NoProfile -NonInteractive -Command \
+        '$tokens = $null; $errors = $null; [System.Management.Automation.Language.Parser]::ParseFile($env:INSTALL_PS1, [ref]$tokens, [ref]$errors) > $null; if ($errors.Count) { $errors | ForEach-Object { Write-Error $_ }; exit 1 }'
 fi
 
 "$ROOT_DIR/scripts/build-pages.sh"
