@@ -1,0 +1,6 @@
+- Get notified when an agent finishes, fails, or needs your attention, then jump straight back to the right project and task.
+- Follow future updates with clear download progress and a simple restart-to-install experience on macOS and Linux.
+- Use GPT-5.6 Sol on the free plan, with clearer and more consistent model choices across plans.
+- Build cleaner schematics with smarter placement, improved wire and label spacing, steadier auto-fit, and more reliable component selection.
+- See fewer interruptions from agent streaming errors and internal processing events.
+- Enjoy broader reliability improvements across notifications, model selection, packaged toolchains, and release delivery.
