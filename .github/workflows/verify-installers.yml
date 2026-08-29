@@ -37,7 +37,7 @@ jobs:
     name: Verify source and build output
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - run: scripts/verify-installer-source.sh
 
   deploy:
@@ -46,7 +46,7 @@ jobs:
     needs: source
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - name: Build static installer bundle
         run: scripts/build-pages.sh
       - name: Deploy to Cloudflare Workers
@@ -63,8 +63,8 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Wait for Cloudflare Pages
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Verify live Worker assets
         env:
           MAX_ATTEMPTS: "30"
           RETRY_SECONDS: "20"
