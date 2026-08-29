@@ -1,6 +1,7 @@
 name: Verify installers
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - install.sh
@@ -39,10 +40,27 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - run: scripts/verify-installer-source.sh
 
+  deploy:
+    name: Deploy production Worker
+    if: github.event_name != 'pull_request'
+    needs: source
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Build static installer bundle
+        run: scripts/build-pages.sh
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3.15.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+          wranglerVersion: "4.127.1"
+
   production:
     name: Verify production deployment
-    if: github.event_name == 'push'
-    needs: source
+    if: github.event_name != 'pull_request'
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4

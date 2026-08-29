@@ -27,23 +27,25 @@ curl -fsSL https://get.embedr.app/install.sh | bash -s -- --version v0.2.1
 
 ### Hosting
 
-This repository is configured for Cloudflare Pages. The build copies the root installer scripts into `dist/`, so:
+This repository deploys a Cloudflare static-assets Worker named
+`embedr-release`. The build copies the root installer scripts into `dist/`, so:
 
 - `https://get.embedr.app/` redirects to `https://get.embedr.app/install.sh`
 - `https://get.embedr.app/install.sh` serves the macOS/Linux installer
 - `https://get.embedr.app/install.ps1` serves the Windows installer
 
-Cloudflare Pages settings:
+Deployment settings:
 
 - Build command: `bash scripts/build-pages.sh`
 - Build output directory: `dist`
-- Production branch: `main`
 - Custom domain: `get.embedr.app`
+- Production branch: `main`
 
 Pull requests verify installer syntax, canonical release URLs, Gatekeeper
 behavior, and the exact Cloudflare build output. After an installer change is
-merged, GitHub Actions waits for the production deployment and verifies that
-both live scripts match the committed sources byte-for-byte.
+merged, GitHub Actions deploys the Worker with Wrangler and verifies that both
+live scripts match the committed sources byte-for-byte. The workflow can also
+be run manually from GitHub Actions.
 
 ### Download
 - Get the latest installers from this repository's Releases page
