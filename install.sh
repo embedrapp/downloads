@@ -53,7 +53,6 @@ If you do not pass --version, the latest release is installed.
 EOF
 }
 
-ORIGINAL_ARGS=("$@")
 for arg in "$@"; do
     case "$arg" in
         --help|-h)
@@ -164,9 +163,9 @@ if [ "$PLATFORM" = "macos" ] && [ "${EUID:-$(id -u)}" -ne 0 ]; then
             curl -fsSL "$INSTALLER_BASE/install.sh"
         } > "$SCRIPT_TMP"
         chmod +x "$SCRIPT_TMP"
-        exec sudo bash "$SCRIPT_TMP" "${ORIGINAL_ARGS[@]}"
+        exec sudo bash "$SCRIPT_TMP" "$@"
     fi
-    exec sudo "$0" "${ORIGINAL_ARGS[@]}"
+    exec sudo "$0" "$@"
 fi
 
 REQUESTED_VERSION="latest"
